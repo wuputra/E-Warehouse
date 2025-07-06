@@ -1,11 +1,9 @@
 # E-Warehouse SIMRS RSUD Mohammad Natsir
-
+![Dashboard Admin](https://github.com/wuputra/E-Warehouse/blob/main/images/Preview/PreviewApp_DashboardAdmin.png?raw=true)
 ## 🗂️ Informasi Umum
 
 - **Nama Aplikasi** : E-Warehouse SIMRS RSUD Mohammad Natsir  
 - **Tipe Aplikasi** : Web-based Inventory Management  
-- **Dibuat oleh**   : Team SIMRS RSUD Mohammad Natsir  
-- **Tanggal Rilis** : 07 Juli 2025  
 
 ## 📌 Deskripsi
 
@@ -34,8 +32,5 @@
 ## 📎 Catatan Tambahan
 
 - Aplikasi ini masih dapat dikembangkan lebih lanjut sesuai kebutuhan operasional rumah sakit.
-- Untuk kontribusi atau permintaan fitur, silakan hubungi Tim SIMRS RSUD Mohammad Natsir.
-
 ---
-
-> © 2025 Tim SIMRS RSUD Mohammad Natsir
+*Designed by Wahyu Ummy Putra*
