@@ -1,6 +1,7 @@
 <?php
 include '../config/controller.php';
 $qb = new lsp();
+session_start();
 
 $id = $_GET['id'] ?? null;
 if (!$id) die("ID tidak ditemukan.");
@@ -14,10 +15,13 @@ foreach ($dataBarang as $barang) {
     $barangMap[$barang['kd_barang']] = $barang['nama_barang'];
 }
 $namaBarang = $barangMap[$dataPre['kd_barang']] ?? 'Tidak ditemukan';
+
+$auth = $qb->AuthUser($_SESSION['username']);
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>CETAK PEMAKAIAN BARANG JARINGAN</title>
@@ -27,7 +31,9 @@ $namaBarang = $barangMap[$dataPre['kd_barang']] ?? 'Tidak ditemukan';
             size: 70mm 40mm;
             margin: 0;
         }
-        html, body {
+
+        html,
+        body {
             margin: 0;
             padding: 0;
             width: 70mm;
@@ -40,73 +46,87 @@ $namaBarang = $barangMap[$dataPre['kd_barang']] ?? 'Tidak ditemukan';
             align-items: center;
             justify-content: center;
         }
+
         .etiket {
             width: 64mm;
             height: 34mm;
             box-sizing: border-box;
             border: 1px solid #000000;
-            padding: 3mm;
+            padding: 1mm;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
         }
+
         .header {
             display: flex;
             align-items: center;
             gap: 4px;
         }
+
         .header img {
             height: 8mm;
             flex-shrink: 0;
         }
+
         .title {
             font-weight: bold;
             font-size: 7pt;
             line-height: 1.1;
             color: #254744;
         }
+
         .subheader {
             font-weight: bold;
             font-size: 5.6pt;
             margin-top: 1mm;
             color: #000000;
         }
+
         .separator {
             border-top: 1px solid #000000;
             margin: 1mm 0 1.0mm 0;
         }
+
         .info-table {
             width: 100%;
             border-collapse: collapse;
         }
+
         .info-table td {
             padding: 0.1mm 0;
             vertical-align: top;
         }
+
         .label-col {
             width: 22mm;
             font-weight: bold;
         }
+
         .colon-col {
             width: 1.5mm;
             padding-left: 0;
             padding-right: 0.5mm;
             text-align: left;
         }
+
         .value-col {
             word-break: break-word;
         }
+
         /* Warna khusus untuk baris kode antrian */
         .highlight-label {
             font-weight: bold;
             color: #000000;
         }
+
         .highlight-value {
             font-weight: bold;
             color: #000000;
         }
     </style>
 </head>
+
 <body onload="window.print()">
     <div class="etiket">
         <div class="header">
@@ -129,21 +149,27 @@ $namaBarang = $barangMap[$dataPre['kd_barang']] ?? 'Tidak ditemukan';
                 <td class="value-col"><?= htmlspecialchars($namaBarang) ?></td>
             </tr>
             <tr>
+                <td class="label-col">Penyalur</td>
+                <td class="colon-col">:</td>
+                <td class="value-col"><?= htmlspecialchars($auth['nama_user']) ?></td>
+            </tr>
+            <tr>
                 <td class="label-col">Tanggal Diterima</td>
                 <td class="colon-col">:</td>
                 <td class="value-col"><?= htmlspecialchars($dataPre['tanggal_keluar']) ?></td>
-            </tr>
-            <tr>
-                <td class="label-col">Penempatan</td>
-                <td class="colon-col">:</td>
-                <td class="value-col"><?= htmlspecialchars($dataPre['penempatan']) ?></td>
             </tr>
             <tr>
                 <td class="label-col">Penerima</td>
                 <td class="colon-col">:</td>
                 <td class="value-col"><?= htmlspecialchars($dataPre['penerima']) ?></td>
             </tr>
+            <tr>
+                <td class="label-col">Penempatan</td>
+                <td class="colon-col">:</td>
+                <td class="value-col"><?= htmlspecialchars($dataPre['penempatan']) ?></td>
+            </tr>
         </table>
     </div>
 </body>
+
 </html>
