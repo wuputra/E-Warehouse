@@ -15,8 +15,8 @@ $merek = $pg->getCountRows("table_merek");
 $distributor = $pg->getCountRows("table_distributor");
 $transaksi = $pg->selectCount("table_pretransaksi", "kd_pretransaksi");
 $terjual = $pg->selectCount("table_transaksi", "jumlah_beli");
-$totstock = $pg->selectSum("table_barang", "stok_barang");
-$totusage = $pg->selectSum("table_pretransaksi", "jumlah");
+$totstocknet = $pg->selectSum("table_barang", "stok_barang");
+$totusagenet = $pg->selectSum("table_pretransaksi", "jumlah");
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <section class="au-breadcrumb m-t-75">
@@ -68,26 +68,27 @@ $totusage = $pg->selectSum("table_pretransaksi", "jumlah");
                             </div>
                         </div>
                 </div>
-
                 <!-- Report Stock Barang -->
-                <a href="pageNetwork.php?page=reportStockBarang" style="text-decoration: none; color: inherit;">
-                    <div class="overview-item overview-item--c6">
-                        <div class="overview__inner">
-                            <div class="overview-box clearfix">
-                                <div class="icon">
-                                    <i class="fas fa-chart-pie"></i>
+                <div class="col-sm-6 col-lg-3">
+                    <a href="pageNetwork.php?page=reportStockBarang" style="text-decoration: none; color: inherit;">
+                        <div class="overview-item overview-item--c6">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="fas fa-chart-pie"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2><?= number_format($totstocknet['sum'] ?? 0); ?></h2>
+                                        <span>Network Stock Report</span>
+                                    </div>
                                 </div>
-                                <div class="text">
-                                    <h2><?= number_format($totstock['sum'] ?? 0); ?></h2>
-                                    <span>Stock Report</span>
+                                <div class="overview-chart">
+                                    <canvas id="widgetChart6"></canvas>
                                 </div>
-                            </div>
-                            <div class="overview-chart">
-                                <canvas id="widgetChart6"></canvas>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
 
                 <!-- Barang Terjual -->
                 <div class="col-sm-6 col-lg-3">
@@ -110,25 +111,27 @@ $totusage = $pg->selectSum("table_pretransaksi", "jumlah");
                         </div>
                 </div>
 
-                <!-- Report Pemakaian Barang -->
-                <a href="pageNetwork.php?page=reportPemakaianBarang" style="text-decoration: none; color: inherit;">
-                    <div class="overview-item overview-item--c6">
-                        <div class="overview__inner">
-                            <div class="overview-box clearfix">
-                                <div class="icon">
-                                    <i class="fas fa-chart-line"></i>
+                <div class="col-sm-6 col-lg-3">
+                    <!-- Report Pemakaian Barang Jaringan -->
+                    <a href="pageNetwork.php?page=reportPemakaianBarang" style="text-decoration: none; color: inherit;">
+                        <div class="overview-item overview-item--c6">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2><?= number_format($totusagenet['sum'] ?? 0); ?></h2>
+                                        <span>Network Usage Report</span>
+                                    </div>
                                 </div>
-                                <div class="text">
-                                    <h2><?= number_format($totusage['sum'] ?? 0); ?></h2>
-                                    <span>Item Usage Report</span>
+                                <div class="overview-chart">
+                                    <canvas id="widgetChart6"></canvas>
                                 </div>
-                            </div>
-                            <div class="overview-chart">
-                                <canvas id="widgetChart6"></canvas>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div> <!-- end row -->
         </div>
     </div>
