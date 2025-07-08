@@ -15,8 +15,8 @@ $merek = $pg->getCountRows("table_merek");
 $distributor = $pg->getCountRows("table_distributor");
 $transaksi = $pg->selectCount("table_pretransaksi_hardware", "kd_pretransaksi");
 $terjual = $pg->selectCount("table_transaksi_hardware", "jumlah_beli");
-$totstock = $pg->selectSum("table_barang_hardware", "stok_barang");
-$totusage = $pg->selectSum("table_pretransaksi_hardware", "jumlah");
+$totstockhard = $pg->selectSum("table_barang_hardware", "stok_barang");
+$totusagehard = $pg->selectSum("table_pretransaksi_hardware", "jumlah");
 ?>
 <section class="au-breadcrumb m-t-75">
     <div class="section__content section__content--p30">
@@ -68,26 +68,27 @@ $totusage = $pg->selectSum("table_pretransaksi_hardware", "jumlah");
                         </div>
                 </div>
 
-                <!-- Report Stock Barang -->
-                <a href="pageHardware.php?page=reportStockBarangHardware"
-                    style="text-decoration: none; color: inherit;">
-                    <div class="overview-item overview-item--c6">
-                        <div class="overview__inner">
-                            <div class="overview-box clearfix">
-                                <div class="icon">
-                                    <i class="fas fa-chart-pie"></i>
+                <!-- Report Stock Barang Hardware -->
+                <div class="col-sm-6 col-lg-3">
+                    <a href="pageHardware.php?page=reportStockBarangHardware" style="text-decoration: none; color: inherit;">
+                        <div class="overview-item overview-item--c6">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="fas fa-chart-pie"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2><?= number_format($totstockhard['sum'] ?? 0); ?></h2>
+                                        <span>Hardware Stock Report</span>
+                                    </div>
                                 </div>
-                                <div class="text">
-                                    <h2><?= number_format($totstock['sum'] ?? 0); ?></h2>
-                                    <span>Stock Report</span>
+                                <div class="overview-chart">
+                                    <canvas id="widgetChart6"></canvas>
                                 </div>
-                            </div>
-                            <div class="overview-chart">
-                                <canvas id="widgetChart6"></canvas>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
 
                 <!-- Barang Terjual -->
                 <div class="col-sm-6 col-lg-3">
@@ -111,26 +112,28 @@ $totusage = $pg->selectSum("table_pretransaksi_hardware", "jumlah");
                         </div>
                 </div>
 
-                <!-- Report Pemakaian Barang -->
-                <a href="pageHardware.php?page=reportPemakaianBarangHardware"
-                    style="text-decoration: none; color: inherit;">
-                    <div class="overview-item overview-item--c6">
-                        <div class="overview__inner">
-                            <div class="overview-box clearfix">
-                                <div class="icon">
-                                    <i class="fas fa-chart-line"></i>
+                <!-- Report Pemakaian Barang Hardware -->
+                <div class="col-sm-6 col-lg-3">
+                    <a href="pageHardware.php?page=reportPemakaianBarangHardware"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="overview-item overview-item--c6">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2><?= number_format($totusagehard['sum'] ?? 0); ?></h2>
+                                        <span>Hardware Usage Report</span>
+                                    </div>
                                 </div>
-                                <div class="text">
-                                    <h2><?= number_format($totusage['sum'] ?? 0); ?></h2>
-                                    <span>Item Usage Report</span>
+                                <div class="overview-chart">
+                                    <canvas id="widgetChart6"></canvas>
                                 </div>
-                            </div>
-                            <div class="overview-chart">
-                                <canvas id="widgetChart6"></canvas>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div> <!-- end row -->
         </div>
     </div>
