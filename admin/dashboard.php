@@ -73,24 +73,26 @@ $totusagehard = $pg->selectSum("table_pretransaksi_hardware", "jumlah");
                         </div>
                 </div>
                 <!-- Report Stock Barang -->
-                <a href="pageAdmin.php?page=reportStockBarang" style="text-decoration: none; color: inherit;">
-                    <div class="overview-item overview-item--c6">
-                        <div class="overview__inner">
-                            <div class="overview-box clearfix">
-                                <div class="icon">
-                                    <i class="fas fa-chart-pie"></i>
+                <div class="col-sm-6 col-lg-3">
+                    <a href="pageAdmin.php?page=reportStockBarang" style="text-decoration: none; color: inherit;">
+                        <div class="overview-item overview-item--c6">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="fas fa-chart-pie"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2><?= number_format($totstocknet['sum'] ?? 0); ?></h2>
+                                        <span>Network Stock Report</span>
+                                    </div>
                                 </div>
-                                <div class="text">
-                                    <h2><?= number_format($totstocknet['sum'] ?? 0); ?></h2>
-                                    <span>Network Stock Report</span>
+                                <div class="overview-chart">
+                                    <canvas id="widgetChart6"></canvas>
                                 </div>
-                            </div>
-                            <div class="overview-chart">
-                                <canvas id="widgetChart6"></canvas>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 <!-- Data Pemakaian Barang Jaringan -->
                 <div class="col-sm-6 col-lg-3">
                     <a href="pageAdmin.php?page=viewPemakaianBarang" style="text-decoration: none; color: inherit;">
@@ -111,25 +113,27 @@ $totusagehard = $pg->selectSum("table_pretransaksi_hardware", "jumlah");
                             </div>
                         </div>
                 </div>
-                <!-- Report Pemakaian Barang Jaringan -->
-                <a href="pageAdmin.php?page=reportPemakaianBarang" style="text-decoration: none; color: inherit;">
-                    <div class="overview-item overview-item--c6">
-                        <div class="overview__inner">
-                            <div class="overview-box clearfix">
-                                <div class="icon">
-                                    <i class="fas fa-chart-line"></i>
+                <div class="col-sm-6 col-lg-3">
+                    <!-- Report Pemakaian Barang Jaringan -->
+                    <a href="pageAdmin.php?page=reportPemakaianBarang" style="text-decoration: none; color: inherit;">
+                        <div class="overview-item overview-item--c6">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2><?= number_format($totusagenet['sum'] ?? 0); ?></h2>
+                                        <span>Network Usage Report</span>
+                                    </div>
                                 </div>
-                                <div class="text">
-                                    <h2><?= number_format($totusagenet['sum'] ?? 0); ?></h2>
-                                    <span>Network Usage Report</span>
+                                <div class="overview-chart">
+                                    <canvas id="widgetChart6"></canvas>
                                 </div>
-                            </div>
-                            <div class="overview-chart">
-                                <canvas id="widgetChart6"></canvas>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 <!-- Data Barang Hardware -->
                 <div class="col-sm-6 col-lg-3">
                     <a href="pageAdmin.php?page=viewBarangHardware" style="text-decoration: none; color: inherit;">
@@ -151,24 +155,26 @@ $totusagehard = $pg->selectSum("table_pretransaksi_hardware", "jumlah");
                         </div>
                 </div>
                 <!-- Report Stock Barang Hardware -->
-                <a href="pageAdmin.php?page=reportStockBarangHardware" style="text-decoration: none; color: inherit;">
-                    <div class="overview-item overview-item--c6">
-                        <div class="overview__inner">
-                            <div class="overview-box clearfix">
-                                <div class="icon">
-                                    <i class="fas fa-chart-pie"></i>
+                <div class="col-sm-6 col-lg-3">
+                    <a href="pageAdmin.php?page=reportStockBarangHardware" style="text-decoration: none; color: inherit;">
+                        <div class="overview-item overview-item--c6">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="fas fa-chart-pie"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2><?= number_format($totstockhard['sum'] ?? 0); ?></h2>
+                                        <span>Hardware Stock Report</span>
+                                    </div>
                                 </div>
-                                <div class="text">
-                                    <h2><?= number_format($totstockhard['sum'] ?? 0); ?></h2>
-                                    <span>Hardware Stock Report</span>
+                                <div class="overview-chart">
+                                    <canvas id="widgetChart6"></canvas>
                                 </div>
-                            </div>
-                            <div class="overview-chart">
-                                <canvas id="widgetChart6"></canvas>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 <!-- Data Pemakaian Barang Hardware -->
                 <div class="col-sm-6 col-lg-3">
                     <a href="pageAdmin.php?page=viewPemakaianBarangHardware"
@@ -191,25 +197,27 @@ $totusagehard = $pg->selectSum("table_pretransaksi_hardware", "jumlah");
                         </div>
                 </div>
                 <!-- Report Pemakaian Barang Hardware -->
-                <a href="pageAdmin.php?page=reportPemakaianBarangHardware"
-                    style="text-decoration: none; color: inherit;">
-                    <div class="overview-item overview-item--c6">
-                        <div class="overview__inner">
-                            <div class="overview-box clearfix">
-                                <div class="icon">
-                                    <i class="fas fa-chart-line"></i>
+                <div class="col-sm-6 col-lg-3">
+                    <a href="pageAdmin.php?page=reportPemakaianBarangHardware"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="overview-item overview-item--c6">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2><?= number_format($totusagehard['sum'] ?? 0); ?></h2>
+                                        <span>Hardware Usage Report</span>
+                                    </div>
                                 </div>
-                                <div class="text">
-                                    <h2><?= number_format($totusagehard['sum'] ?? 0); ?></h2>
-                                    <span>Hardware Usage Report</span>
+                                <div class="overview-chart">
+                                    <canvas id="widgetChart6"></canvas>
                                 </div>
-                            </div>
-                            <div class="overview-chart">
-                                <canvas id="widgetChart6"></canvas>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
