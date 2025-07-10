@@ -147,7 +147,7 @@ if ($auth['level'] != 'Network Engineer') {
                                         </form>
                                     </div>
                                 </div>
-                                  <div class="header-button-item has-noti js-item-menu">
+                                <div class="header-button-item has-noti js-item-menu">
                                     <i class="zmdi zmdi-notifications"></i>
                                     <div class="notifi-dropdown js-dropdown">
                                         <div class="notifi__title">
@@ -162,10 +162,10 @@ if ($auth['level'] != 'Network Engineer') {
                                                 <span class="date">Now</span>
                                             </div>
                                         </div>
-                                         <div class="notifi__item">
+                                        <div class="notifi__item">
                                             <div class="bg-c1 img-cir img-40">
                                                 <a href="?page=informasiAplikasi">
-                                               <i class="zmdi zmdi-info-outline"></i>
+                                                    <i class="zmdi zmdi-info-outline"></i>
                                             </div>
                                             <div class="content">
                                                 <p>Application Usage Information</p>
@@ -183,8 +183,8 @@ if ($auth['level'] != 'Network Engineer') {
                                             <a href="?page=profile">
                                                 <i class="zmdi zmdi-account"></i>Account</a>
                                         </div>
-                                         <div class="account-dropdown__item">
-                                             <a href="?page=informasiAplikasi">
+                                        <div class="account-dropdown__item">
+                                            <a href="?page=informasiAplikasi">
                                                 <i class="fa fa-info-circle"></i> Information</a>
                                         </div>
                                         <div class="account-dropdown__item">
@@ -213,6 +213,9 @@ if ($auth['level'] != 'Network Engineer') {
             switch ($page) {
                 case 'profile':
                     include "profile.php";
+                    break;
+                case 'viewPemakaianBarangEdit':
+                    include "network/viewPemakaianBarangEdit.php";
                     break;
                 case 'viewDistributor':
                     include "network/viewDistributor.php";
@@ -244,7 +247,7 @@ if ($auth['level'] != 'Network Engineer') {
                 case 'addBarang':
                     include "network/addBarang.php";
                     break;
-                 case 'cetakKartuBarangJaringan':
+                case 'cetakKartuBarangJaringan':
                     include "admin/cetakKartuBarangJaringan.php";
                     break;
                 case 'kartuPemakaianBarangJaringan':
@@ -297,44 +300,44 @@ if ($auth['level'] != 'Network Engineer') {
     <script src="js/sweetalert.min.js"></script>
     <script src="js/bootstrap-datepicker.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             function preview(input) {
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();
 
-                    reader.onload = function (e) {
+                    reader.onload = function(e) {
                         $('#pict').attr('src', e.target.result);
                     }
 
                     reader.readAsDataURL(input.files[0]);
                 }
             }
-            $('#gambar').change(function () {
+            $('#gambar').change(function() {
                 preview(this);
             })
         });
     </script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             function preview(input) {
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();
 
-                    reader.onload = function (e) {
+                    reader.onload = function(e) {
                         $('#pict2').attr('src', e.target.result);
                     }
 
                     reader.readAsDataURL(input.files[0]);
                 }
             }
-            $('#gambar2').change(function () {
+            $('#gambar2').change(function() {
                 preview(this);
             })
         });
     </script>
     <script>
-        $(document).ready(function () {
-            $('#forLogout').click(function (e) {
+        $(document).ready(function() {
+            $('#forLogout').click(function(e) {
                 e.preventDefault();
                 swal({
                     title: "Logout",
@@ -345,7 +348,7 @@ if ($auth['level'] != 'Network Engineer') {
                     cancelButtonText: "No",
                     closeOnConfirm: false,
                     closeOnCancel: true
-                }, function (isConfirm) {
+                }, function(isConfirm) {
                     if (isConfirm) {
                         window.location.href = "?logout";
                     }
@@ -357,7 +360,7 @@ if ($auth['level'] != 'Network Engineer') {
         })
     </script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#example').DataTable();
         });
     </script>
